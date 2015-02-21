@@ -7,4 +7,54 @@
     tools:context="com.dashmarked.gamifyyourlyf.AddTask"
     android:background="#F44336">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="ADD ACTIVITY"
+        android:id="@+id/textView4"
+        android:textSize="48sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="92dp"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Activity Name :"
+        android:id="@+id/textView5"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_marginBottom="31dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE ACTIVITY"
+        android:id="@+id/button8"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:textSize="24sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD ANOTHER"
+        android:id="@+id/button9"
+        android:layout_below="@+id/button8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:textSize="24sp" />
 </RelativeLayout>
