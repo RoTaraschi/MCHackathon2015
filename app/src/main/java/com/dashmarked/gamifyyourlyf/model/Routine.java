@@ -20,7 +20,7 @@ public class Routine implements Serializable {
 
     public Routine(ArrayList tasks) {
         if(routines != null) {
-            this.id = getAllRoutines().size();
+            this.id = routines.size();
         }
         else{
             routines = new ArrayList<Routine>();
@@ -35,6 +35,9 @@ public class Routine implements Serializable {
         return tasks;
     }
     public static Routine getCurrentRoutine() {
+        if(currentRoutine == null){
+            currentRoutine = getAllRoutines().get(0);
+        }
         return currentRoutine;
     }
     public static void setCurrentRoutine(Routine routine) {
@@ -53,6 +56,7 @@ public class Routine implements Serializable {
 
             }
             if(routines == null){
+                System.out.println("----------");
                 ArrayList<Task> tasks = Task.getAllTasks();
                 Routine routine = new Routine(tasks);
                 routines = new ArrayList<Routine>();

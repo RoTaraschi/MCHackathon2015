@@ -51,12 +51,13 @@ public class Task implements Serializable{
                 for (int i = 0; i < 10; i++) {
                     tasks.add(new Task());
                 }
+
                 tasks.get(0).setName("wake up");
                 tasks.get(1).setName("brush teeth");
                 tasks.get(2).setName("shower");
                 tasks.get(3).setName("eat breakfast");
                 tasks.get(4).setName("walk dog");
-                tasks.get(5).setName("walk and chew bubble gum");
+                tasks.get(5).setName("chew bubble gum");
                 tasks.get(6).setName("use the force");
                 tasks.get(7).setName("pick your nose");
                 tasks.get(8).setName("jog");
