@@ -37,7 +37,6 @@ public class Routine {
         Routine routine = new Routine(tasks);
         routines.add(routine);
         return routine;
-
     }
     //TODO: implement
     public static Routine getRoutine(int id){
