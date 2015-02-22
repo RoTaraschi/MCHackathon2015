@@ -14,13 +14,11 @@ import java.util.ArrayList;
  */
 public class Task implements Serializable{
     private static final long serialVersionUID = 9113402515928091850L;
-    private static int numTask = 0;
+    private static ArrayList<Task> tasks = null;
     private int id;
     private String name;
-    private static ArrayList<Task> tasks = null;
     private Task(){
-        numTask++;
-        id = numTask;
+        id = getAllTasks().size();
     }
     private Task(int id){
         this.id = id;
@@ -34,6 +32,7 @@ public class Task implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+
     public static ArrayList<Task> getAllTasks(){
         //if tasks are not initialized
         if (tasks == null) {

@@ -13,15 +13,13 @@ import java.io.Serializable;
 public class Routine implements Serializable {
     private static final long serialVersionUID = 9112652515928091850L;
 
-    private static int numRoutines;
     private static Routine currentRoutine = null;
     private static ArrayList<Routine> routines = null;
     private ArrayList<Task> tasks = new ArrayList<Task>();
     private int id;
 
     public Routine(ArrayList tasks) {
-        numRoutines++;
-        this.id = numRoutines;
+        this.id = getAllRoutines().size();
         this.tasks = tasks;
     }
     public int getId() {
