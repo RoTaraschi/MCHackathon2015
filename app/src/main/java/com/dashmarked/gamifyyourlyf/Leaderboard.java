@@ -1,17 +1,27 @@
 package com.dashmarked.gamifyyourlyf;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
-public class Leaderboard extends ActionBarActivity {
+public class Leaderboard extends ActionBarActivity implements View.OnClickListener {
+
+    Button nextActivityButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
+
+        nextActivityButton = (Button) findViewById(R.id.button10);
+        nextActivityButton.setOnClickListener(this);
+
+
     }
 
 
@@ -35,5 +45,17 @@ public class Leaderboard extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+
+            case R.id.button10:
+                Intent intent1 = new Intent(this, StartActivity.class);
+                startActivity(intent1);
+                break;
+
+        }
     }
 }
