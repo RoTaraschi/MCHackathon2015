@@ -5,12 +5,12 @@
         <shape>
             //Press down
             <gradient
-                android:startColor="#689F38"
-                android:endColor="#689F38"
+                android:startColor="#f06627"
+                android:endColor="#f06627"
                 android:angle="270" />
             <stroke
                 android:width="0dp"
-                android:color="#689F38" />
+                android:color="#f06627" />
             <corners
                 android:radius="0dp" />
             <padding
@@ -23,12 +23,12 @@
     <item android:state_focused="true" >
         <shape>
             <gradient
-                android:endColor="#DCEDC8"
-                android:startColor="#DCEDC8"
+                android:endColor="#0f6bac"
+                android:startColor="#0f6bac"
                 android:angle="270" />
             <stroke
                 android:width="0dp"
-                android:color="#DCEDC8" />
+                android:color="#0f6bac" />
             <corners
                 android:radius="0dp" />
             <padding
@@ -42,15 +42,15 @@
     <item>
         <shape>
             <gradient
-                android:endColor="#0288d1"
-                android:startColor="#0288d1"
+                android:endColor="#f3a713"
+                android:startColor="#f3a713"
                 android:angle="270" />
             <stroke
                 android:width="1dp"
-                android:color="#263238" />
+                android:color="#f3a713" />
             <stroke
                 android:width="0dp"
-                android:color="#DCEDC8" />
+                android:color="#f3a713" />
             <corners
                 android:radius="2dp" />
             <padding
