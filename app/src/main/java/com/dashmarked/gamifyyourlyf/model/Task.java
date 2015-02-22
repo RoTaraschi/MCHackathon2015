@@ -1,11 +1,19 @@
 package com.dashmarked.gamifyyourlyf.model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 import java.util.ArrayList;
 
 /**
  * Created by geoffrey on 2/21/15.
  */
-public class Task {
+public class Task implements Serializable{
+    private static final long serialVersionUID = 9113402515928091850L;
     private static int numTask = 0;
     private int id;
     private String name;
@@ -15,36 +23,81 @@ public class Task {
         numTask++;
         id = numTask;
     }
+    private Task(int id){
+        this.id = id;
+    }
     //TODO: implement this properly
     public int getId(){
         return id;
     }
     //TODO: implement this properly
     public String getName(){
-        return "ExampleTask"+getId();
+        return name;
     }
     //TODO: implement this properly
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
     //TODO: implement this properly
     public static ArrayList<Task> getAllTasks(){
+        //if tasks are not initialized
         if (tasks == null) {
-            tasks = new ArrayList<Task>();
-            for(int i = 0; i < 10; i++){
-                tasks.add(new Task());
+            try{
+                //get input from file
+                File file = new File("tasks.dogening");
+                ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
+                tasks = (ArrayList<Task>) input.readObject();
+            }
+            catch(Exception e){
+                System.out.println("SOMETHING WENT WRONG OMG.");
+            }
+            //if file didn't exist or was null, initialize the values
+            if(tasks == null) {
+                tasks = new ArrayList<Task>();
+                for (int i = 0; i < 10; i++) {
+                    tasks.add(new Task());
+                }
+                tasks.get(0).setName("wake up");
+                tasks.get(1).setName("brush teeth");
+                tasks.get(2).setName("shower");
+                tasks.get(3).setName("eat breakfast");
+                tasks.get(4).setName("walk dog");
+                tasks.get(5).setName("walk and chew bubble gum");
+                tasks.get(6).setName("use the force");
+                tasks.get(7).setName("pick your nose");
+                tasks.get(8).setName("jog");
+                tasks.get(9).setName("let them eat cake");
             }
         }
         return tasks;
     }
-    //TODO: implement
-    public Task getTask(int id){
+    public static Task getTask(int id){
+        ArrayList<Task> tasklist = getAllTasks();
+        if(tasklist != null) {
+            for (Task task : tasklist) {
+                if (task.id == id) {
+                    return task;
+                }
+            }
+        }
         return null;
     }
-    //TODO: implement this properly
     public static Task addTask(String name) {
+        ArrayList<Task> tasklist = getAllTasks();
         Task task = new Task();
         task.setName(name);
-        tasks.add(task);
+        tasklist.add(task);
         return task;
+    }
+    public static void SerializeTasks(){
+        try{
+            File file = new File("tasks.dogening");
+            ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
+            output.writeObject(tasks);
+        }
+        catch(Exception e){
+            System.out.println("DID A BAD THING AND STUFF");
+        }
     }
 
 }
