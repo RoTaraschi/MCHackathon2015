@@ -25,22 +25,21 @@
         android:text="Let's GO!"
         android:id="@+id/btnGO"
 
-        android:layout_alignParentBottom="true"
         android:textSize="24sp"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_alignEnd="@+id/textView3"
-        android:layout_alignStart="@+id/textView3" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_alignEnd="@+id/tasksScrollView" />
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tasksScrollView"
-        android:layout_alignParentStart="false"
-        android:layout_alignStart="@id/textView3"
-        android:layout_toStartOf="@id/textView3"
-        android:layout_alignEnd="@id/textView3"
         android:padding="25px"
-        android:layout_above="@id/btnGO">
+        android:layout_above="@+id/btnGO"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_alignEnd="@+id/textView">
         android:layout_below="@+id/textView"
         android:paddingBottom="10dp">
 
@@ -59,10 +58,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Select the activities you&apos;d like to do:"
+        android:text="Choose your activities:"
         android:id="@+id/textView"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="59dp"
         android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/textView3" />
 
 </RelativeLayout>
