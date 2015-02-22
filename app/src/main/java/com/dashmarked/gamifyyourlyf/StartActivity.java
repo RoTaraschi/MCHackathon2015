@@ -57,7 +57,7 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
         stopButton.setOnClickListener(this);
         stopButton.setText("Next Task!");
 
-        chrono.setBase(SystemClock.elapsedRealtime() + timeWhenStopped);
+        chrono.setBase(SystemClock.elapsedRealtime());
         chrono.start();
 
 
@@ -78,24 +78,7 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
             case R.id.button11:
 
                 String ButtonText = startButton.getText().toString();
-                if(ButtonText.equals("START/PAUSE")) {
-
-                    chrono.setBase(SystemClock.elapsedRealtime());
-                    chrono.start();
-
-                    //switch to pause when first clicked
-                    startButton.setText("PAUSE");
-                }
-                else if(ButtonText.equals("RESUME")) {
-
-                    //switch to pause
-                    startButton.setText("PAUSE");
-
-                    //resume from the time when last stopped
-                    chrono.setBase(SystemClock.elapsedRealtime() + timeWhenStopped);
-                    chrono.start();
-
-                } else {
+                if(ButtonText.equals("PAUSE")) {
 
                     //save time when stopped
                     timeWhenStopped = chrono.getBase() - SystemClock.elapsedRealtime();
@@ -105,6 +88,17 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
                     startButton.setText("RESUME");
 
                     chrono.stop();
+                }
+                else if (ButtonText.equals("RESUME")) {
+
+                    //switch to pause
+                    startButton.setText("PAUSE");
+
+                    //resume from the time when last stopped
+                    chrono.setBase(SystemClock.elapsedRealtime() + timeWhenStopped);
+                    chrono.start();
+
+
                 }
 
 

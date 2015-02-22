@@ -23,6 +23,7 @@ public class Routine implements Serializable {
             this.id = routines.size();
         }
         else{
+            routines = new ArrayList<Routine>();
             this.id = 0;
         }
         this.tasks = tasks;
@@ -67,7 +68,7 @@ public class Routine implements Serializable {
     }
     public static Routine addRoutine(ArrayList<Task> tasks) {
         Routine routine = new Routine(tasks);
-        getAllRoutines().add(routine);
+        routines.add(routine);
         return routine;
     }
     public static Routine getRoutine(int id) {

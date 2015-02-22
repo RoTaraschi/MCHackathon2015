@@ -26,9 +26,9 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        firstPlace = (TextView)findViewById(R.id.textView6);
+        firstPlace = (TextView)findViewById(R.id.textView8);
         secondPlace = (TextView)findViewById(R.id.textView9);
-        thirdPlace = (TextView)findViewById(R.id.textView8);
+        thirdPlace = (TextView)findViewById(R.id.textView10);
 
         Morning first = null;
         Morning second = null;
@@ -59,15 +59,12 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
 
 
         if(first != null){
-            firstPlace.setText("hello");
+            //firstPlace.setText("hello");
         }
 
 
 
         setContentView(R.layout.activity_leaderboard);
-
-        nextActivityButton = (Button) findViewById(R.id.button10);
-        nextActivityButton.setOnClickListener(this);
 
 
     }
@@ -97,15 +94,5 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
-
-            case R.id.button10:
-                Intent intent1 = new Intent(this, Tasks.class);
-                startActivity(intent1);
-                break;
-
-        }
-
-
     }
 }
