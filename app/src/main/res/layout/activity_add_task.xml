@@ -43,18 +43,25 @@
         android:layout_height="wrap_content"
         android:text="SAVE ACTIVITY"
         android:id="@+id/button8"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="#CCCCCC"
+        android:layout_above="@+id/button9"
+        android:layout_marginBottom="53dp"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD ANOTHER"
         android:id="@+id/button9"
-        android:layout_below="@+id/button8"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="#CCCCCC"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="45dp"
+        android:layout_alignEnd="@+id/button8"
+        android:layout_alignStart="@+id/button8" />
+
 </RelativeLayout>

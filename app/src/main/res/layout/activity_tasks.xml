@@ -24,6 +24,9 @@
         android:text="ADD ACTIVITY"
         android:id="@+id/button7"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="#CCCCCC"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
 </RelativeLayout>

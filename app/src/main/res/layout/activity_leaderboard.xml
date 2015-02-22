@@ -35,7 +35,10 @@
         android:text="NEXT ACTIVITY"
         android:id="@+id/button10"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="36dp"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="#CCCCCC"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
 </RelativeLayout>
