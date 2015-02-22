@@ -38,15 +38,7 @@ public class Morning {
     }
     public static ArrayList<Morning> getAllMornings(){
         if(mornings == null){
-            try {
-                //get input from file
-                File file = new File("mornings.dogening");
-                ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
-                mornings = (ArrayList<Morning>) input.readObject();
-            }
-            catch(Exception e){
-
-            }
+            DeSerializeMornings();
             if(mornings == null){
                 mornings = new ArrayList<Morning>();
             }
@@ -57,11 +49,23 @@ public class Morning {
     public void addTime(Task task, Date start, Date end){
         Time time = Time.addTime(task, start, end);
         this.times.add(time);
+        SerializeMornings();
     }
     public ArrayList<Time> getTimes(){
         return times;
     }
 
+    public static void DeSerializeMornings(){
+        try {
+            //get input from file
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"doge/mornings.dogening");
+            ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
+            mornings = (ArrayList<Morning>) input.readObject();
+        }
+        catch(Exception e){
+
+        }
+    }
     public static void SerializeMornings() {
         try {
             File file = new File(android.os.Environment.getExternalStorageDirectory(),"doge/mornings.dogening");

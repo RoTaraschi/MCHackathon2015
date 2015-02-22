@@ -46,17 +46,8 @@ public class Routine implements Serializable {
 
     public static ArrayList<Routine> getAllRoutines(){
         if(routines == null){
-            try {
-                //get input from file
-                File file = new File("routines.dogening");
-                ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
-                routines = (ArrayList<Routine>) input.readObject();
-            }
-            catch(Exception e){
-
-            }
+            DeSerializeRoutines();
             if(routines == null){
-                System.out.println("----------");
                 ArrayList<Task> tasks = Task.getAllTasks();
                 Routine routine = new Routine(tasks);
                 routines = new ArrayList<Routine>();
@@ -69,6 +60,7 @@ public class Routine implements Serializable {
     public static Routine addRoutine(ArrayList<Task> tasks) {
         Routine routine = new Routine(tasks);
         routines.add(routine);
+        SerializeRoutines();
         return routine;
     }
     public static Routine getRoutine(int id) {
@@ -78,6 +70,18 @@ public class Routine implements Serializable {
             }
         }
         return null;
+    }
+
+    public static void DeSerializeRoutines(){
+        try {
+            //get input from file
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"doge/routines.dogening");
+            ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
+            routines = (ArrayList<Routine>) input.readObject();
+        }
+        catch(Exception e){
+
+        }
     }
 
     public static void SerializeRoutines() {

@@ -25,10 +25,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Morning.SerializeMornings();
-        Routine.SerializeRoutines();
-        Task.SerializeTasks();
-        Time.SerializeTimes();
+        Morning.DeSerializeMornings();
+        Routine.DeSerializeRoutines();
+        Task.DeSerializeTasks();
+        Time.DeSerializeTimes();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
