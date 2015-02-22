@@ -1,9 +1,18 @@
 package com.dashmarked.gamifyyourlyf;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.dashmarked.gamifyyourlyf.model.Task;
+
+import java.util.ArrayList;
 
 
 public class Tasks extends ActionBarActivity {
@@ -12,6 +21,43 @@ public class Tasks extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
+
+        final LinearLayout dbLayout = (LinearLayout) findViewById(R.id.scrlLinearLayout_Task_Acts);
+
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        ArrayList<Task> ActivityTask = Task.getAllTasks();
+
+        //Create four
+        for (int i = 0; i < ActivityTask.size(); i++) {
+            LinearLayout dbLinearLayout = new LinearLayout(this);
+            dbLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+
+            final Button btn = new Button(this);
+            btn.setId(i);
+            btn.setText(ActivityTask.get(i).getName());
+            btn.setLayoutParams(params);
+
+
+            //btn.setOnClickListener(new OnClickListener() {
+            // public void onClick(View v) {
+
+            //Intent newIntent = new Intent(this, StartActivity.class);
+            //startActivity(newIntent);
+
+
+            //}
+
+
+            //Add button to LinearLayout
+            dbLinearLayout.addView(btn);
+            //Add button to LinearLayout defined in XML
+            dbLayout.addView(dbLinearLayout);
+        }
+
     }
 
 
@@ -35,5 +81,17 @@ public class Tasks extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.button7:
+                Intent addTaskIntent = new Intent(this, StartActivity.class);
+                startActivity(addTaskIntent);
+                break;
+
+
+        }
     }
 }
