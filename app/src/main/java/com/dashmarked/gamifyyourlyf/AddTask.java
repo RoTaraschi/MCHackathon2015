@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.dashmarked.gamifyyourlyf.model.Task;
 
@@ -18,9 +19,6 @@ public class AddTask extends ActionBarActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
-
-        Button saveActivity =(Button) findViewById(R.id.button8);
-        saveActivity.setOnClickListener(this);
 
         Button addAnother = (Button) findViewById(R.id.button9);
         addAnother.setOnClickListener(this);
@@ -56,11 +54,15 @@ public class AddTask extends ActionBarActivity implements View.OnClickListener{
 
             //save & add
             case R.id.button9:{
-
                 EditText addAction = (EditText) findViewById(R.id.editText);
                 String addString = addAction.getText().toString();
                 Task.addTask(addString);
                 addAction.setText("");
+
+                TextView inputview = (TextView) findViewById(R.id.inputview);
+                inputview.setText(addString);
+
+
             }
     }
 }

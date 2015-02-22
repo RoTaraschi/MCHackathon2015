@@ -60,8 +60,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Choose your activities:"
         android:id="@+id/textView"
-        android:layout_marginTop="59dp"
         android:layout_below="@+id/textView3"
-        android:layout_alignStart="@+id/textView3" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
