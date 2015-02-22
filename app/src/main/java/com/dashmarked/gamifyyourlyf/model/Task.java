@@ -51,6 +51,7 @@ public class Task implements Serializable{
                 for (int i = 0; i < 10; i++) {
                     tasks.add(new Task());
                 }
+
                 tasks.get(0).setName("wake up");
                 tasks.get(1).setName("brush teeth");
                 tasks.get(2).setName("shower");

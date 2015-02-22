@@ -8,6 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.TextView;
+
+import com.dashmarked.gamifyyourlyf.model.Routine;
+import com.dashmarked.gamifyyourlyf.model.Task;
+
+import java.util.ArrayList;
 
 
 public class StartActivity extends ActionBarActivity implements View.OnClickListener {
@@ -15,21 +21,33 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
     Chronometer chrono;
     Button startButton;
     Button stopButton;
+    TextView activityName;
+    ArrayList<Task> tasks = null;
+    int count = 0;
 
     long timeWhenStopped = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_start);
 
+        tasks = Routine.getCurrentRoutine().getRoutineTasks();
+        System.out.println("----------------------------------------------");
+
         chrono = (Chronometer) findViewById(R.id.chronometer);
+
+
+        activityName = (TextView)findViewById(R.id.textView7);
+        activityName.setText(tasks.get(count++).getName());
 
         startButton = (Button)findViewById(R.id.button11);
         startButton.setOnClickListener(this);
 
         stopButton = (Button)findViewById(R.id.button12);
         stopButton.setOnClickListener(this);
+
 
     }
 
@@ -82,7 +100,8 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
 
             case R.id.button12:
 
-                chrono.stop();
+                if(count < tasks.size())
+                    activityName.setText(tasks.get(count++).getName());
                 break;
 
         }
