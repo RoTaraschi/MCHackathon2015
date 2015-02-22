@@ -25,7 +25,7 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
 
         chrono = (Chronometer) findViewById(R.id.chronometer);
 
-        startButton = (Button)findViewById(R.id.button11);
+        startButton = (Button) findViewById(R.id.button11);
         startButton.setOnClickListener(this);
 
         stopButton = (Button)findViewById(R.id.button12);

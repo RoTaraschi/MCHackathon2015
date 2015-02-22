@@ -7,54 +7,50 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
+import com.dashmarked.gamifyyourlyf.model.Routine;
 import com.dashmarked.gamifyyourlyf.model.Task;
 
 import java.util.ArrayList;
 
 
-public class Tasks extends ActionBarActivity {
+public class Tasks extends ActionBarActivity implements View.OnClickListener {
+
+    LinearLayout dbLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
 
-        final LinearLayout dbLayout = (LinearLayout) findViewById(R.id.scrlLinearLayout_Task_Acts);
+        Button startTask = (Button) findViewById(R.id.btnGO);
+        startTask.setOnClickListener(this);
+
+
+
+        dbLayout = (LinearLayout) findViewById(R.id.scrlLinearLayout_Task_Acts);
 
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        ArrayList<Task> ActivityTask = Task.getAllTasks();
-
-        //Create four
-        for (int i = 0; i < ActivityTask.size(); i++) {
+        for (int i = 0; i < Task.getAllTasks().size(); i++) {
             LinearLayout dbLinearLayout = new LinearLayout(this);
             dbLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
 
-            final Button btn = new Button(this);
-            btn.setId(i);
-            btn.setText(ActivityTask.get(i).getName());
-            btn.setLayoutParams(params);
+            final CheckBox cbx= new CheckBox(this);
+            cbx.setId(i);
+            cbx.setText(Task.getAllTasks().get(i).getName());
+            cbx.setLayoutParams(params);
 
 
-            //btn.setOnClickListener(new OnClickListener() {
-            // public void onClick(View v) {
 
-            //Intent newIntent = new Intent(this, StartActivity.class);
-            //startActivity(newIntent);
+            dbLinearLayout.addView(cbx);
 
-
-            //}
-
-
-            //Add button to LinearLayout
-            dbLinearLayout.addView(btn);
-            //Add button to LinearLayout defined in XML
             dbLayout.addView(dbLinearLayout);
         }
 
@@ -86,12 +82,26 @@ public class Tasks extends ActionBarActivity {
     public void onClick(View v) {
         switch (v.getId()) {
 
-            case R.id.button7:
+            case R.id.btnGO :
+
+                ArrayList<Task> addRoutine = new ArrayList<Task>();
+
+                for(int i=0; i<Task.getAllTasks().size(); i++) {
+
+
+                    CheckBox checkBox = (CheckBox) findViewById(i);
+                    if (checkBox.isChecked()) {
+
+                        addRoutine.add(   Task.getAllTasks().get(i)  );
+
+                    }
+
+                   Routine.setCurrentRoutine(Routine.addRoutine(addRoutine));
+
+                }
                 Intent addTaskIntent = new Intent(this, StartActivity.class);
                 startActivity(addTaskIntent);
                 break;
-
-
         }
     }
 }
