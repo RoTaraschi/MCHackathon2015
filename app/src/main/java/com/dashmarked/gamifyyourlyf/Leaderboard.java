@@ -13,6 +13,7 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
 
     Button nextActivityButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,5 +58,7 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
                 break;
 
         }
+
+
     }
 }
