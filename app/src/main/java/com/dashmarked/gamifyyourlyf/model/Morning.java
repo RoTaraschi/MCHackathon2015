@@ -62,7 +62,7 @@ public class Morning {
 
     public static void SerializeMornings() {
         try {
-            File file = new File(android.os.Environment.getExternalStorageDirectory(),"mornings.dogening");
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"doge/mornings.dogening");
             ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
             output.writeObject(getAllMornings());
         } catch (Exception e) {
