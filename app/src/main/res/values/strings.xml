@@ -9,4 +9,12 @@
     <string name="title_activity_add_task">AddTask</string>
     <string name="title_activity_start">StartActivity</string>
 
+
+    <string-array name="dropdownmenu_list">
+        <item>HOME</item>
+        <item>START ACTIVITY</item>
+        <item>LEADERBOARD</item>
+        <item>ADD TASK</item>
+        <item>SOCIAL</item>
+    </string-array>
 </resources>
