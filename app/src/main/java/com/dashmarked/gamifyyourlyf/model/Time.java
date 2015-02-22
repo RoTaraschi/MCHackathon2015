@@ -1,12 +1,13 @@
 package com.dashmarked.gamifyyourlyf.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.ArrayList;
 
 /**
  * Created by geoffrey on 2/21/15.
  */
-public class Time {
+public class Time implements Serializable{
     private static int numTimes = 0;
     private Task task;
     private Date start;

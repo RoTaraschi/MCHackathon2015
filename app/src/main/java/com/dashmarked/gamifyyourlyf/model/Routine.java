@@ -1,50 +1,84 @@
 package com.dashmarked.gamifyyourlyf.model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
+import java.io.Serializable;
 /**
  * Created by geoffrey on 2/21/15.
  */
-public class Routine {
+public class Routine implements Serializable {
+    private static final long serialVersionUID = 9112652515928091850L;
+
     private static int numRoutines;
-    private static Routine currentRoutine= null;
+    private static Routine currentRoutine = null;
     private static ArrayList<Routine> routines = null;
     private ArrayList<Task> tasks = new ArrayList<Task>();
     private int id;
 
-    public Routine(ArrayList tasks){
+    public Routine(ArrayList tasks) {
         numRoutines++;
         this.id = numRoutines;
         this.tasks = tasks;
     }
-    public int getId(){
+    public int getId() {
         return id;
     }
-    //todo: implement
-    public ArrayList<Task> getRoutineTasks(){
+    public ArrayList<Task> getRoutineTasks() {
         return tasks;
     }
-    //TODO: implement
-    public static Routine getCurrentRoutine(){
+    public static Routine getCurrentRoutine() {
         return currentRoutine;
     }
-    //TODO: implement
-    public void setCurrentRoutine(Routine routine){
+    public static void setCurrentRoutine(Routine routine) {
         currentRoutine = routine;
     }
-    //TODO: implement
-    public static Routine addRoutine(ArrayList<Task> tasks){
+
+    public static ArrayList<Routine> getAllRoutines(){
+        if(routines == null){
+            try {
+                //get input from file
+                File file = new File("routines.dogening");
+                ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
+                routines = (ArrayList<Routine>) input.readObject();
+            }
+            catch(Exception e){
+
+            }
+            if(routines == null){
+                ArrayList<Task> tasks = Task.getAllTasks();
+                Routine routine = new Routine(tasks);
+                routines = new ArrayList<Routine>();
+                routines.add(routine);
+                setCurrentRoutine(routine);
+            }
+        }
+        return routines;
+    }
+    public static Routine addRoutine(ArrayList<Task> tasks) {
         Routine routine = new Routine(tasks);
-        routines.add(routine);
+        getAllRoutines().add(routine);
         return routine;
     }
-    //TODO: implement
-    public static Routine getRoutine(int id){
-        for(Routine routine : routines){
-            if(routine.id == id){
+    public static Routine getRoutine(int id) {
+        for (Routine routine : getAllRoutines()) {
+            if (routine.id == id) {
                 return routine;
             }
         }
         return null;
+    }
+
+    public static void SerializeRoutines() {
+        try {
+            File file = new File("routines.dogening");
+            ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
+            output.writeObject(getAllRoutines());
+        } catch (Exception e) {
+            System.out.println("DID A BAD THING AND STUFF");
+        }
     }
 }
