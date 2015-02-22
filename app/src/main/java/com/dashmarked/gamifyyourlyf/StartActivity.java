@@ -12,17 +12,21 @@ import android.widget.TextView;
 
 import com.dashmarked.gamifyyourlyf.model.Routine;
 import com.dashmarked.gamifyyourlyf.model.Task;
+import com.dashmarked.gamifyyourlyf.model.Time;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class StartActivity extends ActionBarActivity implements View.OnClickListener {
+
 
     Chronometer chrono;
     Button startButton;
     Button stopButton;
     TextView activityName;
     ArrayList<Task> tasks = null;
+    Date startStamp;
     int count = 0;
 
     long timeWhenStopped = 0;
@@ -34,10 +38,10 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
         setContentView(R.layout.activity_start);
 
         tasks = Routine.getCurrentRoutine().getRoutineTasks();
-        System.out.println("----------------------------------------------");
 
         chrono = (Chronometer) findViewById(R.id.chronometer);
 
+        startStamp = new Date();
 
         activityName = (TextView)findViewById(R.id.textView7);
         activityName.setText(tasks.get(count++).getName());
@@ -47,6 +51,9 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
 
         stopButton = (Button)findViewById(R.id.button12);
         stopButton.setOnClickListener(this);
+        stopButton.setText("Next Task!");
+
+        chrono.start();
 
 
     }
@@ -99,7 +106,9 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
                 break;
 
             case R.id.button12:
-
+                Time time = Time.addTime(tasks.get(count-1), startStamp, new Date());
+                System.out.println(time.getTask().getName() + " " + " " + time.getStart() +  " " + " " +  time.getEnd() );
+                startStamp = new Date();
                 if(count < tasks.size())
                     activityName.setText(tasks.get(count++).getName());
                 break;
