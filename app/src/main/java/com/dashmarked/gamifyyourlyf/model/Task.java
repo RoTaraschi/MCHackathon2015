@@ -14,31 +14,25 @@ import java.util.ArrayList;
  */
 public class Task implements Serializable{
     private static final long serialVersionUID = 9113402515928091850L;
-    private static int numTask = 0;
+    private static ArrayList<Task> tasks = null;
     private int id;
     private String name;
-    private static ArrayList<Task> tasks = null;
-    //TODO: implement this properly
     private Task(){
-        numTask++;
-        id = numTask;
+        id = getAllTasks().size();
     }
     private Task(int id){
         this.id = id;
     }
-    //TODO: implement this properly
     public int getId(){
         return id;
     }
-    //TODO: implement this properly
     public String getName(){
         return name;
     }
-    //TODO: implement this properly
     public void setName(String name) {
         this.name = name;
     }
-    //TODO: implement this properly
+
     public static ArrayList<Task> getAllTasks(){
         //if tasks are not initialized
         if (tasks == null) {
@@ -91,11 +85,12 @@ public class Task implements Serializable{
     }
     public static void SerializeTasks(){
         try{
-            File file = new File("tasks.dogening");
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"doge/tasks.dogening");
             ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
             output.writeObject(tasks);
         }
         catch(Exception e){
+            e.printStackTrace();
             System.out.println("DID A BAD THING AND STUFF");
         }
     }
