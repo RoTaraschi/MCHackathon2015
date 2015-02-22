@@ -52,19 +52,47 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
         thirdPlace = (TextView)findViewById(R.id.textView10);
 
         if(first != null){
-            firstPlace.setText("date:" +first.getDate().getDate() + " score: " + first.calculateTime()/60000 + ":" +((first.calculateTime()%60000)/1000));
+
+            String M = new Long(first.calculateTime()/60000).toString();
+            String S = new Long((first.calculateTime()%60000)/1000).toString();
+
+            if(S.length()== 1){
+                S = "0" + S;
+            }
+            if(M.length() == 1){
+                M = "0" + M;
+            }
+            firstPlace.setText("date:" +first.getDate().getDate() + " score: " + M + ":" + S );
         }
         else{
             firstPlace.setText("");
         }
         if(second != null){
-            secondPlace.setText("date:" +second.getDate().getDate() + " score: " + second.calculateTime()/60000 + ":" + ((second.calculateTime()%60000)/1000));
+            String M = new Long(second.calculateTime()/60000).toString();
+            String S = new Long((second.calculateTime()%60000)/1000).toString();
+
+            if(S.length()== 1){
+                S = "0" + S;
+            }
+            if(M.length() == 1){
+                M = "0" + M;
+            }
+            secondPlace.setText("date:" +second.getDate().getDate() + " score: " + M + ":" + S);
         }
         else{
             secondPlace.setText("");
         }
         if(third != null){
-            thirdPlace.setText("date:" +third.getDate().getDate() + " score: " + third.calculateTime()/60000 + ":" + ((third.calculateTime()%60000)/1000));
+            String M = new Long(third.calculateTime()/60000).toString();
+            String S = new Long((third.calculateTime()%60000)/1000).toString();
+
+            if(S.length()== 1){
+                S = "0" + S;
+            }
+            if(M.length() == 1){
+                M = "0" + M;
+            }
+            thirdPlace.setText("date:" +third.getDate().getDate() + " score: " + M + ":" + S);
         }
         else{
             thirdPlace.setText("");
