@@ -53,7 +53,7 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
         switch(v.getId()) {
 
             case R.id.button10:
-                Intent intent1 = new Intent(this, StartActivity.class);
+                Intent intent1 = new Intent(this, Tasks.class);
                 startActivity(intent1);
                 break;
 
