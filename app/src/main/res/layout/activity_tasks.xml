@@ -30,4 +30,27 @@
         android:layout_alignEnd="@+id/textView3"
         android:layout_alignStart="@+id/textView3" />
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tasksScrollView"
+        android:layout_alignParentStart="false"
+        android:layout_alignStart="@id/textView3"
+        android:layout_toStartOf="@id/textView3"
+        android:layout_below="@id/textView3"
+        android:layout_alignEnd="@id/textView3"
+        android:padding="25px"
+        android:layout_above="@id/button7">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:measureWithLargestChild="false"
+            android:id="@+id/scrlLinearLayout_Task_Acts"
+            >
+
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
