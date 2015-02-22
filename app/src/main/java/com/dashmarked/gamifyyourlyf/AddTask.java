@@ -24,9 +24,6 @@ public class AddTask extends ActionBarActivity implements View.OnClickListener{
 
         Button addAnother = (Button) findViewById(R.id.button9);
         addAnother.setOnClickListener(this);
-
-
-
     }
 
 

@@ -52,19 +52,19 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
         thirdPlace = (TextView)findViewById(R.id.textView10);
 
         if(first != null){
-            firstPlace.setText("date:" +first.getDate().getDate() + " score: " + first.calculateTime());
+            firstPlace.setText("date:" +first.getDate().getDate() + " score: " + first.calculateTime()/60000 + ":" +((first.calculateTime()%60000)/1000));
         }
         else{
             firstPlace.setText("");
         }
         if(second != null){
-            secondPlace.setText("date:" +second.getDate().getDate() + " score: " + second.calculateTime());
+            secondPlace.setText("date:" +second.getDate().getDate() + " score: " + second.calculateTime()/60000 + ":" + ((second.calculateTime()%60000)/1000));
         }
         else{
             secondPlace.setText("");
         }
         if(third != null){
-            thirdPlace.setText("date:" +third.getDate().getDate() + " score: " + third.calculateTime());
+            thirdPlace.setText("date:" +third.getDate().getDate() + " score: " + third.calculateTime()/60000 + ":" + ((third.calculateTime()%60000)/1000));
         }
         else{
             thirdPlace.setText("");

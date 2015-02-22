@@ -36,15 +36,7 @@ public class Task implements Serializable{
     public static ArrayList<Task> getAllTasks(){
         //if tasks are not initialized
         if (tasks == null) {
-            try{
-                //get input from file
-                File file = new File("tasks.dogening");
-                ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
-                tasks = (ArrayList<Task>) input.readObject();
-            }
-            catch(Exception e){
-                System.out.println("SOMETHING WENT WRONG OMG.");
-            }
+            DeSerializeTasks();
             //if file didn't exist or was null, initialize the values
             if(tasks == null) {
                 tasks = new ArrayList<Task>();
@@ -82,7 +74,20 @@ public class Task implements Serializable{
         Task task = new Task();
         task.setName(name);
         tasklist.add(task);
+        SerializeTasks();
         return task;
+    }
+
+    public static void DeSerializeTasks(){
+        try{
+            //get input from file
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"doge/tasks.dogening");
+            ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
+            tasks = (ArrayList<Task>) input.readObject();
+        }
+        catch(Exception e){
+            System.out.println("SOMETHING WENT WRONG OMG.");
+        }
     }
     public static void SerializeTasks(){
         try{

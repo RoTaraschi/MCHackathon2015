@@ -28,14 +28,7 @@ public class Time implements Serializable{
     }
     public static ArrayList<Time> getAllTimes(){
         if (times == null) {
-            try {
-                //get input from file
-                File file = new File("times.dogening");
-                ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
-                times = (ArrayList<Time>) input.readObject();
-            } catch (Exception e) {
-                System.out.println("SOMETHING WENT WRONG OMG.");
-            }
+            DeSerializeTimes();
             if(times == null){
                 times = new ArrayList<Time>();
             }
@@ -57,6 +50,7 @@ public class Time implements Serializable{
     public static Time addTime(Task task, Date start, Date end){
         Time time = new Time(task, start, end);
         getAllTimes().add(time);
+        SerializeTimes();
         return time;
     }
     public static Time getTime(int id){
@@ -66,6 +60,17 @@ public class Time implements Serializable{
             }
         }
         return null;
+    }
+
+    public static void DeSerializeTimes(){
+        try {
+            //get input from file
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"doge/times.dogening");
+            ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
+            times = (ArrayList<Time>) input.readObject();
+        } catch (Exception e) {
+            System.out.println("SOMETHING WENT WRONG OMG.");
+        }
     }
     public static void SerializeTimes(){
         try{
