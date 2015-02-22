@@ -68,7 +68,7 @@
             android:layout_width="185dp"
             android:layout_height="wrap_content"
             android:text="HOME"
-            android:id="@+id/button5"
+            android:id="@+id/buttonHome"
             android:layout_gravity="center_horizontal"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"

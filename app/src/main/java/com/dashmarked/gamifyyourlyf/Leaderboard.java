@@ -16,7 +16,7 @@ import com.dashmarked.gamifyyourlyf.model.Morning;
 
 public class Leaderboard extends ActionBarActivity implements View.OnClickListener {
 
-    Button nextActivityButton;
+    Button homeButton;
 
     TextView firstPlace;
     TextView secondPlace;
@@ -25,7 +25,6 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         setContentView(R.layout.activity_leaderboard);
 
@@ -98,7 +97,8 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
             thirdPlace.setText("");
         }
 
-
+        homeButton = (Button) findViewById(R.id.buttonHome);
+        homeButton.setOnClickListener(this);
     }
 
 
@@ -126,5 +126,13 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+
+        switch(v.getId()) {
+
+            case R.id.buttonHome:
+                Intent intent1 = new Intent(this, MainActivity.class);
+                startActivity(intent1);
+                break;
+        }
     }
 }
