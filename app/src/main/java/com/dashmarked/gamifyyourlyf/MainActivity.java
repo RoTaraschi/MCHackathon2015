@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.dashmarked.gamifyyourlyf.model.Morning;
+import com.dashmarked.gamifyyourlyf.model.Routine;
+import com.dashmarked.gamifyyourlyf.model.Task;
+import com.dashmarked.gamifyyourlyf.model.Time;
+
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -21,6 +26,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Morning.SerializeMornings();
+        Routine.SerializeRoutines();
+        Task.SerializeTasks();
+        Time.SerializeTimes();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
