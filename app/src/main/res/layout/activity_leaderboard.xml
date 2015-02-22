@@ -7,4 +7,38 @@
     tools:context="com.dashmarked.gamifyyourlyf.Leaderboard"
     android:background="#F44336">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="TOP TIMES"
+        android:id="@+id/textView2"
+        android:textSize="48sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="ACTIVITY NAME"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:textSize="24sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT ACTIVITY"
+        android:id="@+id/button10"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="36dp"
+        android:textSize="24sp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="#CCCCCC"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
 </RelativeLayout>
