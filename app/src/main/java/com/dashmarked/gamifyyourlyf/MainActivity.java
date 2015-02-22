@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
@@ -14,6 +15,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     Button startButton;
     Button leaderboardButton;
     Button addTaskButton;
+    ImageButton twitterButton;
+    ImageButton fbButton;
+    ImageButton gpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +33,28 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         addTaskButton = (Button) findViewById(R.id.button3);
         addTaskButton.setOnClickListener(this);
 
+        twitterButton = (ImageButton)findViewById(R.id.btnTW);
+        twitterButton.setOnClickListener(imgButtonHandler);
+
+        fbButton = (ImageButton)findViewById(R.id.btnFB);
+        fbButton.setOnClickListener(imgButtonHandler);
+
+        gpButton = (ImageButton)findViewById(R.id.btnGP);
+        gpButton.setOnClickListener(imgButtonHandler);
+
     }
 
+    View.OnClickListener imgButtonHandler = new View.OnClickListener() {
+
+        public void onClick(View v) {
+            twitterButton.setBackgroundResource(R.drawable.tw1);
+            fbButton.setBackgroundResource(R.drawable.fb1);
+            gpButton.setBackgroundResource(R.drawable.gp1);
+
+
+
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,8 +78,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+
     @Override
     public void onClick(View v) {
+
 
         switch(v.getId()){
 
