@@ -9,7 +9,18 @@
     <string name="title_activity_add_task">AddTask</string>
     <string name="title_activity_start">StartActivity</string>
 
+    <string name="facebook_app_id">
+        1646388738920557
+    </string>
+    <string name="twitter_consumer_key">
+        TyobF45yhtcIqt26Ey7Ss5c6x
+    </string>
+    <string name="twitter_consumer_secret">
+        KLPqbgotHrPsB3apRBmsf9pCZJnbDz6UkVOBIvtcn2n21dvBcj
+    </string>
 
+
+    <string name="menu">Menu</string>
     <string-array name="dropdownmenu_list">
         <item>HOME</item>
         <item>START ACTIVITY</item>
