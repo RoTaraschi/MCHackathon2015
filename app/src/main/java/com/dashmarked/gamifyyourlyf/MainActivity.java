@@ -60,7 +60,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         switch(v.getId()){
 
             case R.id.button :
-                Intent intent1 = new Intent(this, Tasks.class);
+                Intent intent1 = new Intent(this, StartActivity.class);
                 startActivity(intent1);
                 break;
 
