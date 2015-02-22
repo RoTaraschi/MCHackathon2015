@@ -82,6 +82,9 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
 
             case R.id.button12:
 
+
+                //Upload time to appropriate activity
+
                 chrono.stop();
                 break;
 
