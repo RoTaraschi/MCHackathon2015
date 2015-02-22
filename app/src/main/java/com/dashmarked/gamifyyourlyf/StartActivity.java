@@ -1,5 +1,6 @@
 package com.dashmarked.gamifyyourlyf;
 
+import android.content.Intent;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import com.dashmarked.gamifyyourlyf.model.Routine;
 import com.dashmarked.gamifyyourlyf.model.Task;
 import com.dashmarked.gamifyyourlyf.model.Time;
+import com.dashmarked.gamifyyourlyf.model.Morning;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,6 +30,7 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
     TextView activityName;
     ArrayList<Task> tasks = null;
     Date startStamp;
+    Morning today = Morning.addMorning();
     int count = 0;
 
     long timeWhenStopped = 0;
@@ -107,11 +111,14 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
                 break;
 
             case R.id.button12:
-                Time time = Time.addTime(tasks.get(count-1), startStamp, new Date());
-                System.out.println(time.getTask().getName() + " " + " " + time.getStart() +  " " + " " +  time.getEnd() );
+                today.addTime(tasks.get(count - 1), startStamp, new Date());
                 startStamp = new Date();
                 if(count < tasks.size())
                     activityName.setText(tasks.get(count++).getName());
+                else{
+                    Intent intent = new Intent(this, Leaderboard.class);
+                    startActivity(intent);
+                }
                 break;
 
         }

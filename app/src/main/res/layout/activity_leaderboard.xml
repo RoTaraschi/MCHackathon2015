@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="ACTIVITY NAME"
+        android:text="First Place"
         android:id="@+id/textView6"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
@@ -41,4 +41,23 @@
         android:background="#CCCCCC"
         android:layout_alignEnd="@+id/textView2"
         android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Third Place"
+        android:id="@+id/textView8"
+        android:layout_below="@+id/textView9"
+        android:layout_alignStart="@+id/button10"
+        android:layout_marginTop="60dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Second Place"
+        android:id="@+id/textView9"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/textView2" />
 </RelativeLayout>

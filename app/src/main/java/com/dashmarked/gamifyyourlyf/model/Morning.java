@@ -14,9 +14,11 @@ import java.util.Date;
 public class Morning {
     private static ArrayList<Morning> mornings = null;
     private ArrayList<Time> times = new ArrayList<Time>();
+    private Date date;
     private int id;
     //TODO: implement
     private Morning(){
+        date = new Date();
         id = getAllMornings().size();
     }
     //TODO: implement
@@ -69,6 +71,18 @@ public class Morning {
             e.printStackTrace();
             System.out.println("DID A BAD THING AND STUFF");
         }
+    }
+
+    public long calculateTime(){
+        long sum = 0;
+        for(Time time : times){
+            sum+= (time.getEnd().getTime()-time.getStart().getTime());
+        }
+        return sum;
+    }
+
+    public Date getDate(){
+        return date;
     }
 
 }
