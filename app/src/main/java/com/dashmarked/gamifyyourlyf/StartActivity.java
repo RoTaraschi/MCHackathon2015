@@ -53,6 +53,7 @@ public class StartActivity extends ActionBarActivity implements View.OnClickList
         stopButton.setOnClickListener(this);
         stopButton.setText("Next Task!");
 
+        chrono.setBase(SystemClock.elapsedRealtime() + timeWhenStopped);
         chrono.start();
 
 
