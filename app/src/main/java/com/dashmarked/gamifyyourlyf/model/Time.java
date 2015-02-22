@@ -69,7 +69,7 @@ public class Time implements Serializable{
     }
     public static void SerializeTimes(){
         try{
-            File file = new File(android.os.Environment.getExternalStorageDirectory(),"times.dogening");
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"doge/times.dogening");
             ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
             output.writeObject(getAllTimes());
         }

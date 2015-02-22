@@ -85,7 +85,7 @@ public class Task implements Serializable{
     }
     public static void SerializeTasks(){
         try{
-            File file = new File(android.os.Environment.getExternalStorageDirectory(),"tasks.dogening");
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"doge/tasks.dogening");
             ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
             output.writeObject(tasks);
         }
