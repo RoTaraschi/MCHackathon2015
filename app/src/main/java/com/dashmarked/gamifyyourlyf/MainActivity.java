@@ -20,10 +20,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     Button startButton;
     Button leaderboardButton;
     Button addTaskButton;
-
-    ImageButton twitterButton;
-    ImageButton fbButton;
-    ImageButton gpButton;
+    Button routineButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,29 +41,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         addTaskButton = (Button) findViewById(R.id.button3);
         addTaskButton.setOnClickListener(this);
 
-        twitterButton = (ImageButton)findViewById(R.id.btnTW);
-        twitterButton.setOnClickListener(imgButtonHandler);
-
-        fbButton = (ImageButton)findViewById(R.id.btnFB);
-        fbButton.setOnClickListener(imgButtonHandler);
-
-        gpButton = (ImageButton)findViewById(R.id.btnGP);
-        gpButton.setOnClickListener(imgButtonHandler);
-
-
+        routineButton = (Button) findViewById(R.id.button4);
+        routineButton.setOnClickListener(this);
     }
-
-    View.OnClickListener imgButtonHandler = new View.OnClickListener() {
-
-        public void onClick(View v) {
-            twitterButton.setBackgroundResource(R.drawable.tw1);
-            fbButton.setBackgroundResource(R.drawable.fb1);
-            gpButton.setBackgroundResource(R.drawable.gp1);
-
-
-
-        }
-    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

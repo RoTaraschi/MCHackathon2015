@@ -14,35 +14,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 
-    <ImageButton
-        android:src="@drawable/tw"
-        android:background="@null"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnTW"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageView1"
-        android:layout_marginRight="5dp" />
-
-    <ImageButton
-        android:src="@drawable/fb"
-        android:background="@null"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnFB"
-        android:layout_alignBottom="@+id/btnTW"
-        android:layout_toEndOf="@+id/btnTW"
-        android:layout_marginRight="5dp" />
-
-    <ImageButton
-        android:src="@drawable/gp"
-        android:background="@null"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnGP"
-        android:layout_alignBottom="@+id/btnFB"
-        android:layout_toEndOf="@+id/btnFB" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
