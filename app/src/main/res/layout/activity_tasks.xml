@@ -22,7 +22,7 @@
         android:background="@drawable/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD ACTIVITY"
+        android:text="Let's GO!"
         android:id="@+id/button7"
         android:layout_alignParentBottom="true"
         android:textSize="24sp"
