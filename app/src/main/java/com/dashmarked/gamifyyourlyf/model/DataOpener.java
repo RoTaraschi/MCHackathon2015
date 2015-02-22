@@ -39,7 +39,4 @@ class DataOpener extends SQLiteOpenHelper {
         database.execSQL(DATABASE_DROP);
         onCreate(database);
     }
-    public static SQLiteDatabase open() throws SQLException {
-        return dbHelper.getWritableDatabase();
-    }
 }

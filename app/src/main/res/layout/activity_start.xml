@@ -25,7 +25,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="69dp"
         android:textSize="104sp"
-        android:format="00:00" />
+        android:format="%s" />
 
     <Button
         android:background="@drawable/button"
