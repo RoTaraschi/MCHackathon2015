@@ -7,21 +7,6 @@
     android:background="#90CAF9">
 
 
-    <Spinner
-        android:id="@+id/osversions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
-
-    <TextView
-        android:id="@+id/selVersion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/osversions"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp" />
-
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
@@ -60,7 +45,7 @@
         android:text="ADD TASK"
         android:id="@+id/button3"
         android:textSize="32sp"
-        android:layout_above="@+id/imageButton"
+        android:layout_above="@+id/btnTW"
         android:layout_alignStart="@+id/button2"
         android:layout_marginTop="23dp"
         android:layout_marginBottom="45dp"
@@ -71,7 +56,7 @@
         android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/btnTW"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/imageView1"
         android:layout_marginRight="5dp" />
@@ -81,9 +66,9 @@
         android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
-        android:layout_alignBottom="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton"
+        android:id="@+id/btnFB"
+        android:layout_alignBottom="@+id/btnTW"
+        android:layout_toEndOf="@+id/btnTW"
         android:layout_marginRight="5dp" />
 
     <ImageButton
@@ -91,8 +76,8 @@
         android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton3"
-        android:layout_alignBottom="@+id/imageButton2"
-        android:layout_toEndOf="@+id/imageButton2" />
+        android:id="@+id/btnGP"
+        android:layout_alignBottom="@+id/btnFB"
+        android:layout_toEndOf="@+id/btnFB" />
 
 </RelativeLayout>
