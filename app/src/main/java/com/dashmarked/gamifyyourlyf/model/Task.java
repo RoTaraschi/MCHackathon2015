@@ -85,11 +85,12 @@ public class Task implements Serializable{
     }
     public static void SerializeTasks(){
         try{
-            File file = new File("tasks.dogening");
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"tasks.dogening");
             ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
             output.writeObject(tasks);
         }
         catch(Exception e){
+            e.printStackTrace();
             System.out.println("DID A BAD THING AND STUFF");
         }
     }

@@ -72,10 +72,11 @@ public class Routine implements Serializable {
 
     public static void SerializeRoutines() {
         try {
-            File file = new File("routines.dogening");
+            File file = new File(android.os.Environment.getExternalStorageDirectory(),"routines.dogening");
             ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
             output.writeObject(getAllRoutines());
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("DID A BAD THING AND STUFF");
         }
     }
