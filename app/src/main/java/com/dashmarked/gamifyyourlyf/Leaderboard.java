@@ -26,45 +26,49 @@ public class Leaderboard extends ActionBarActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        firstPlace = (TextView)findViewById(R.id.textView8);
-        secondPlace = (TextView)findViewById(R.id.textView9);
-        thirdPlace = (TextView)findViewById(R.id.textView10);
+
+        setContentView(R.layout.activity_leaderboard);
+
 
         Morning first = null;
         Morning second = null;
         Morning third = null;
         if(Morning.getAllMornings() != null) {
             for (Morning morning : Morning.getAllMornings()) {
-                if(first == null || morning.calculateTime() > first.calculateTime()){
+                if(first == null || morning.calculateTime() < first.calculateTime()){
                     first = morning;
                 }
-                else if(second == null || morning.calculateTime() > second.calculateTime()){
+                else if(second == null || morning.calculateTime() < second.calculateTime()){
                     second = morning;
                 }
-                else if(third == null || morning.calculateTime() > third.calculateTime()){
+                else if(third == null || morning.calculateTime() < third.calculateTime()){
                     third = morning;
                 }
             }
         }
 
-        if( firstPlace == null){
-            System.out.println("got here");
-        }
-        if( secondPlace == null){
-            System.out.println("got here");
-        }
-        if( thirdPlace == null){
-            System.out.println("got here");
-        }
-
+        firstPlace = (TextView)findViewById(R.id.textView8);
+        secondPlace = (TextView)findViewById(R.id.textView9);
+        thirdPlace = (TextView)findViewById(R.id.textView10);
 
         if(first != null){
-            //firstPlace.setText("hello");
+            firstPlace.setText("date:" +first.getDate().getDate() + " score: " + first.calculateTime());
         }
-
-
-
-        setContentView(R.layout.activity_leaderboard);
+        else{
+            firstPlace.setText("");
+        }
+        if(second != null){
+            secondPlace.setText("date:" +second.getDate().getDate() + " score: " + second.calculateTime());
+        }
+        else{
+            secondPlace.setText("");
+        }
+        if(third != null){
+            thirdPlace.setText("date:" +third.getDate().getDate() + " score: " + third.calculateTime());
+        }
+        else{
+            thirdPlace.setText("");
+        }
 
 
     }
