@@ -20,6 +20,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     Button startButton;
     Button leaderboardButton;
     Button addTaskButton;
+
     ImageButton twitterButton;
     ImageButton fbButton;
     ImageButton gpButton;
@@ -51,6 +52,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         gpButton = (ImageButton)findViewById(R.id.btnGP);
         gpButton.setOnClickListener(imgButtonHandler);
+
 
     }
 
